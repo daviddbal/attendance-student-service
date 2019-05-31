@@ -1,4 +1,4 @@
-package net.balsoftware.attendance;
+package net.balsoftware.attendance.student.methods;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
  * http://localhost:8080/myapp/myresource
  */
 @Path("myresource")
-public class MyResource {
+public class MainResource {
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
