@@ -1,2 +1,3 @@
-rootProject.name = 'student'
+rootProject.name = 'student-api'
 
+includeBuild '../attendance-model'
