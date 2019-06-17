@@ -1,8 +1,8 @@
 package net.balsoftware.attendance.student.methods;
 
-import com.google.inject.Guice;
 import net.balsoftware.attendance.student.service.StudentService;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -15,11 +15,13 @@ import javax.ws.rs.core.MediaType;
 @Path("myresource")
 public class MainResource {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
-    public MainResource() {
-        injector = Guice.createInjector(new AttendanceTestModule());
+    @Inject
+    public MainResource(StudentService studentService) {
+        this.studentService = studentService;
     }
+
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.

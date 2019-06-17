@@ -1,5 +1,7 @@
 package net.balsoftware.attendance.student;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import lombok.extern.slf4j.Slf4j;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.hk2.api.ServiceLocator;
@@ -18,6 +20,7 @@ import java.net.URI;
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://0.0.0.0:8080/myapp/";
+    private static Injector injector;
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -41,6 +44,10 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException, InterruptedException {
+
+        // Setup to Guice
+        injector = Guice.createInjector(new JerseyProductionModule());
+
         log.info("Initiliazing Grizzly server..");
         // instantiate server
 
