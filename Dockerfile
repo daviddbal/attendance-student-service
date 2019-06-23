@@ -1,15 +1,16 @@
 # fetch basic image
-FROM maven:3.3.9-jdk-8 as build
+FROM gradle:3.3.9-jdk-8 as build
 
 # application placed into /opt/app
 WORKDIR /app
 
 # selectively add the POM file and
 # install dependencies
-COPY pom.xml .
+COPY build.gradle .
+COPY settings.gradle .
 COPY src src
 # rest of the project
-RUN mvn install -DskipTests
+RUN gradle run
 
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 

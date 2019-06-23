@@ -46,7 +46,8 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         // Setup to Guice
-        injector = Guice.createInjector(new JerseyProductionModule());
+//        injector = Guice.createInjector(new JerseyProductionModule());
+        injector = Guice.createInjector(new JerseyDevelopmentModule());
 
         log.info("Initiliazing Grizzly server..");
         // instantiate server
