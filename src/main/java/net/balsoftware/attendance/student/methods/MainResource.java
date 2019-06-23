@@ -15,12 +15,12 @@ import javax.ws.rs.core.MediaType;
 @Path("myresource")
 public class MainResource {
 
-    private final StudentService studentService;
-
-    @Inject
-    public MainResource(StudentService studentService) {
-        this.studentService = studentService;
-    }
+//    private final StudentService studentService;
+//
+//    @Inject
+//    public MainResource(StudentService studentService) {
+//        this.studentService = studentService;
+//    }
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -35,11 +35,11 @@ public class MainResource {
     }
 
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getStudent(int id)
-    {
-        return studentService.getStudentById(id);
-    }
+//    @GET
+//    @Produces(MediaType.TEXT_PLAIN)
+//    public String getStudent(int id)
+//    {
+//        return studentService.getStudentById(id);
+//    }
 
 }
